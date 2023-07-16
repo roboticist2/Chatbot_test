@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>챗봇</title>
+    <style>
+        .chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        {% for message in messages %}
+            <p><strong>사용자:</strong> {{ message.user_input }}</p>
+            <p><strong>챗봇:</strong> {{ message.response }}</p>
+        {% endfor %}
+    </div>
+    <form method="POST" action="/">
+        <input type="text" name="user_input" autocomplete="off">
+        <input type="submit" value="전송">
+    </form>
+</body>
+</html>
